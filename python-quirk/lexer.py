@@ -25,7 +25,6 @@ tokenLexeme = [
 ]
 
 def lex(stringToLex):
-    tokenLexeme.append(('SKIP', r'[\s+]'))
     lexedList = []
     currentIndex = 0
 
@@ -59,5 +58,12 @@ def lex(stringToLex):
 
 if __name__ == '__main__':
     lexerOutput = []
+    tokenLexeme.append(('SKIP', r'[\s+]|\n'))
     for part in sys.stdin.readlines():
-        print (lex(part))
+        lexerOutput.append(lex(part))
+
+    for lexedList in lexerOutput:
+        for lexedItem in lexedList:
+            sys.stdout.write(" " + str(lexedItem) + " ")
+
+    sys.stdout.write("EOF")
