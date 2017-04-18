@@ -1,0 +1,25 @@
+Lexer: 29/30
+
+  While format does not follow the specs given in homework guideline, the contents were lexed properly.
+
+  Example 1 CORRECTLY LEXED
+  Example 2 CORRECTLY LEXED
+  Example 3 CORRECTLY LEXED
+  Example 4 CORRECTLY LEXED
+  Example 5 CORRECTLY LEXED
+
+Parser: 30/30
+
+  Example 1 CORRECTLY PARSED
+  Example 2 CORRECTLY PARSED
+  Example 3 CORRECTLY PARSED
+  Example 4 CORRECTLY PARSED
+  Example 5 CORRECTLY PARSED
+
+Interpreter: 0/20
+
+  No interpreter.
+
+Style: 15/20
+
+  Readme has no information on how to run the project as well as version number.
