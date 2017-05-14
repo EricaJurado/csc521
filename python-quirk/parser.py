@@ -1,12 +1,7 @@
-# Takes a sequence of tokens and produces a parse tree according to the
-# language grammar. It is expected that this parser will be a recursive
-# descent parser.
-
-import sys
 import pprint
+import fileinput
 
-pp = pprint.PrettyPrinter(indent=1, depth=20)
-tokens = []
+pp = pprint.PrettyPrinter(indent=1, depth=100)
 
 
 # begin utilities
@@ -619,8 +614,11 @@ def Number(tok_index):
 
 
 if __name__ == '__main__':
-    for line in sys.stdin.readlines():
-        for token in line.split():
-            tokens.append(token)
-    # print(tokens)
-    pp.pprint(Program(0))
+    tokens = ""
+    for line in fileinput.input():
+        tokens += line
+    tokens = tokens.split()
+
+    parseTree = Program(0)[2]
+
+    pp.pprint(parseTree)

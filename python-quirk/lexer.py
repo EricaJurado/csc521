@@ -89,31 +89,17 @@ def lex(stringToLex):
     return lexedList
 
 
-def hackyFlatten(myList):
-    """Return flattened list, regardless of depth."""
-    flatList = []
-    for item in myList:
-        if hasattr(item, '__iter__') and not isinstance(item, (str, bytes)):
-            flatList.extend(hackyFlatten(item))
-        else:
-            flatList.append(item)
-    return flatList
-
-
 if __name__ == '__main__':
-    lexerOutput = []
+    lexerOutput = ""
     # So we don't confuse a skip sequence as a true tokenLexeme pair...
     # we're going to add it here for clarity.
     tokenLexeme.append(('SKIP', r'[\s+]|\n'))
 
     # Reads all input from cmd line, lexes it, and adds it to lexerOutput list
     for part in sys.stdin.readlines():
-        lexerOutput.append(lex(part))
+        lexerOutput += ' '.join(lex(part))
 
-    # Lex function can have lists within lists... to be safe, let's flatten it
-    output = hackyFlatten(lexerOutput)
     # Parser requries EOF marker
-    output.append("EOF")
+    lexerOutput += " EOF"
 
-    for item in output:
-        sys.stdout.write(str(item) + " ")
+    print(lexerOutput)
