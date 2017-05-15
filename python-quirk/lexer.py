@@ -95,7 +95,7 @@ if __name__ == '__main__':
     # we're going to add it here for clarity.
     tokenLexeme.append(('SKIP', r'[\s+]|\n'))
 
-    # Reads all input from cmd line, lexes it, and adds it to lexerOutput list
+    # Reads all input from cmd line, lexes it, and adds it to lexerOutput string
     for part in sys.stdin.readlines():
         lexerOutput += ' '.join(lex(part))
 
